@@ -61,7 +61,12 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// Кастомные цвета для шоколадной темы
+				'warm-brown': 'hsl(var(--warm-brown))',
+				'milk-chocolate': 'hsl(var(--milk-chocolate))',
+				'dark-chocolate': 'hsl(var(--dark-chocolate))',
+				'cream': 'hsl(var(--cream))'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
