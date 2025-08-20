@@ -83,7 +83,7 @@ const InteractiveSection = () => {
                       </h3>
                       <p className="text-muted-foreground">{project.area}</p>
                     </div>
-                    <div className="text-right">
+                    <div className="text-right whitespace-nowrap">
                       <p className="text-lg font-bold text-primary">{project.price}</p>
                     </div>
                   </div>
