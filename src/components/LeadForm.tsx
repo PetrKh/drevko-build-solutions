@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { Phone, Mail, MessageCircle } from "lucide-react";
@@ -10,10 +10,7 @@ import { Phone, Mail, MessageCircle } from "lucide-react";
 const LeadForm = () => {
   const [formData, setFormData] = useState({
     name: "",
-    phone: "",
-    email: "",
-    projectType: "",
-    message: ""
+    phone: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
@@ -31,10 +28,7 @@ const LeadForm = () => {
       setIsSubmitting(false);
       setFormData({
         name: "",
-        phone: "",
-        email: "",
-        projectType: "",
-        message: ""
+        phone: ""
       });
     }, 1000);
   };
@@ -94,44 +88,6 @@ const LeadForm = () => {
                   />
                 </div>
 
-                <div>
-                  <Label htmlFor="email" className="text-foreground">Email</Label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="mt-1"
-                    placeholder="your@email.com"
-                  />
-                </div>
-
-                <div>
-                  <Label htmlFor="projectType" className="text-foreground">Тип проекта</Label>
-                  <Input
-                    id="projectType"
-                    name="projectType"
-                    type="text"
-                    value={formData.projectType}
-                    onChange={handleChange}
-                    className="mt-1"
-                    placeholder="Дом, баня, хозблок..."
-                  />
-                </div>
-
-                <div>
-                  <Label htmlFor="message" className="text-foreground">Дополнительная информация</Label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    className="mt-1"
-                    rows={4}
-                    placeholder="Расскажите о ваших требованиях, пожеланиях, бюджете..."
-                  />
-                </div>
 
                 <Button
                   type="submit"
