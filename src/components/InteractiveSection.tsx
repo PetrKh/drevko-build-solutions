@@ -71,20 +71,24 @@ const InteractiveSection = () => {
                 onClick={() => setActiveProject(project.id)}
               >
                 <CardContent className="p-6">
-                  <div className="flex items-center space-x-4">
+                  <div className="flex items-start md:items-center gap-4">
                     <div className={`p-3 rounded-lg ${
                       activeProject === project.id ? "bg-primary text-primary-foreground" : "bg-muted"
                     }`}>
                       {project.icon}
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-xl font-semibold text-foreground">
-                        {project.title}
-                      </h3>
-                      <p className="text-muted-foreground">{project.area}</p>
-                    </div>
-                    <div className="text-right whitespace-nowrap">
-                      <p className="text-lg font-bold text-primary">{project.price}</p>
+                      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-1">
+                        <div>
+                          <h3 className="text-xl font-semibold text-foreground">
+                            {project.title}
+                          </h3>
+                          <p className="text-muted-foreground">{project.area}</p>
+                        </div>
+                        <div className="text-left md:text-right md:whitespace-nowrap">
+                          <p className="text-lg font-bold text-primary">{project.price}</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </CardContent>
