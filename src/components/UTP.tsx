@@ -71,9 +71,7 @@ const UTP = () => {
               Наше уникальное предложение
             </h3>
             <p className="text-lg text-muted-foreground">
-              Мы строим <span className="text-primary font-semibold">не дешево</span>, но{" "}
-              <span className="text-primary font-semibold">качественно, честно и прозрачно</span>.
-              Для людей, которые ценят свое время и готовы инвестировать в качество.
+              лучшее будущее
             </p>
           </div>
         </div>
