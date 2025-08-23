@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -54,6 +53,9 @@ const LeadForm = () => {
       const telegramSent = await sendToTelegram(formData.name, formData.phone);
       
       if (telegramSent) {
+        // Отправляем событие для изменения 3D модели
+        window.dispatchEvent(new CustomEvent('formSubmitted'));
+        
         toast({
           title: "Заявка отправлена!",
           description: "Мы свяжемся с вами в течение 15 минут.",
