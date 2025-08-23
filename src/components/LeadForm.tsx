@@ -16,8 +16,8 @@ const LeadForm = () => {
   const { toast } = useToast();
 
   const sendToTelegram = async (name: string, phone: string) => {
-    const BOT_TOKEN = "YOUR_BOT_TOKEN"; // Замените на ваш токен бота
-    const CHAT_ID = "YOUR_CHAT_ID"; // Замените на ID вашего канала
+    const BOT_TOKEN = "8488435629:AAFetCYHC5Qa6ciTmUNjnS8e_ajjx0UD9OE";
+    const CHAT_ID = "-1002507186847";
     
     const message = `🔔 Новая заявка на консультацию!\n\n👤 Имя: ${name}\n📞 Телефон: ${phone}\n\n⏰ Время: ${new Date().toLocaleString('ru-RU')}`;
     
