@@ -21,8 +21,8 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Контакты</h4>
             <div className="space-y-2 text-sm opacity-80">
-              <p>+7 (999) 123-45-67</p>
-              <p>info@drevko-build.ru</p>
+              <p>+7 (978) 553-30-97</p>
+              <p>info@drevko-crimea.ru</p>
               <p>Режим работы: 8:00-20:00</p>
               <p>Без выходных</p>
             </div>
