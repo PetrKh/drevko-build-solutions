@@ -1,7 +1,8 @@
+
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Home, Building2, TreePine, Hammer } from "lucide-react";
+import { Home, Building2, TreePine, Hammer, Tent } from "lucide-react";
 
 const InteractiveSection = () => {
   const [activeProject, setActiveProject] = useState(0);
@@ -27,20 +28,38 @@ const InteractiveSection = () => {
     },
     {
       id: 2,
-      title: "Баня-дом",
+      title: "Дом",
       area: "80 м²",
       price: "от 2 200 000 ₽",
-      description: "Компактный дом с парной и комнатой отдыха",
-      features: ["Парная", "Комната отдыха", "Кухня", "Терраса"],
-      icon: <TreePine className="w-6 h-6" />
+      description: "Компактный дом с удобной планировкой",
+      features: ["2 спальни", "1 санузел", "Кухня-гостиная", "Прихожая"],
+      icon: <Home className="w-6 h-6" />
     },
     {
       id: 3,
-      title: "Хозблок премиум",
-      area: "40 м²",
-      price: "от 800 000 ₽",
-      description: "Многофункциональное хозяйственное строение",
-      features: ["Мастерская", "Склад", "Гараж", "Навес"],
+      title: "Баня",
+      area: "",
+      price: "от 500 000 ₽",
+      description: "Традиционная баня с парной и комнатой отдыха",
+      features: ["Парная", "Комната отдыха", "Предбанник", "Терраса"],
+      icon: <TreePine className="w-6 h-6" />
+    },
+    {
+      id: 4,
+      title: "Беседка",
+      area: "",
+      price: "от 300 000 ₽",
+      description: "Красивая беседка для отдыха на природе",
+      features: ["Открытая конструкция", "Место для мангала", "Скамейки", "Стол"],
+      icon: <Tent className="w-6 h-6" />
+    },
+    {
+      id: 5,
+      title: "Хозблок",
+      area: "",
+      price: "от 200 000 ₽",
+      description: "Практичное хозяйственное строение",
+      features: ["Место для инструментов", "Склад", "Дровяник", "Навес"],
       icon: <Hammer className="w-6 h-6" />
     }
   ];
@@ -83,7 +102,7 @@ const InteractiveSection = () => {
                           <h3 className="text-xl font-semibold text-foreground">
                             {project.title}
                           </h3>
-                          <p className="text-muted-foreground">{project.area}</p>
+                          {project.area && <p className="text-muted-foreground">{project.area}</p>}
                         </div>
                         <div className="text-left md:text-right md:whitespace-nowrap">
                           <p className="text-lg font-bold text-primary">{project.price}</p>
@@ -106,7 +125,7 @@ const InteractiveSection = () => {
                 {projects[activeProject].description}
               </p>
               <div className="flex items-center space-x-6 text-sm text-muted-foreground">
-                <span>Площадь: {projects[activeProject].area}</span>
+                {projects[activeProject].area && <span>Площадь: {projects[activeProject].area}</span>}
                 <span className="text-primary font-semibold">{projects[activeProject].price}</span>
               </div>
             </div>
