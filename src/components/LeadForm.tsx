@@ -1,8 +1,8 @@
+
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { Phone, Mail, MessageCircle } from "lucide-react";
@@ -15,22 +15,70 @@ const LeadForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
+  const sendToTelegram = async (name: string, phone: string) => {
+    const BOT_TOKEN = "YOUR_BOT_TOKEN"; // Замените на ваш токен бота
+    const CHAT_ID = "YOUR_CHAT_ID"; // Замените на ID вашего канала
+    
+    const message = `🔔 Новая заявка на консультацию!\n\n👤 Имя: ${name}\n📞 Телефон: ${phone}\n\n⏰ Время: ${new Date().toLocaleString('ru-RU')}`;
+    
+    try {
+      const response = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          chat_id: CHAT_ID,
+          text: message,
+          parse_mode: 'HTML'
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send to Telegram');
+      }
+
+      return true;
+    } catch (error) {
+      console.error('Error sending to Telegram:', error);
+      return false;
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Имитация отправки формы
-    setTimeout(() => {
+    try {
+      // Отправляем в Telegram
+      const telegramSent = await sendToTelegram(formData.name, formData.phone);
+      
+      if (telegramSent) {
+        toast({
+          title: "Заявка отправлена!",
+          description: "Мы свяжемся с вами в течение 15 минут.",
+        });
+        setFormData({
+          name: "",
+          phone: ""
+        });
+      } else {
+        toast({
+          title: "Ошибка отправки",
+          description: "Попробуйте еще раз или свяжитесь с нами по телефону.",
+          variant: "destructive"
+        });
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
       toast({
-        title: "Заявка отправлена!",
-        description: "Мы свяжемся с вами в течение 15 минут.",
+        title: "Ошибка отправки",
+        description: "Попробуйте еще раз или свяжитесь с нами по телефону.",
+        variant: "destructive"
       });
+    } finally {
       setIsSubmitting(false);
-      setFormData({
-        name: "",
-        phone: ""
-      });
-    }, 1000);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -87,7 +135,6 @@ const LeadForm = () => {
                     placeholder="+7 (999) 999-99-99"
                   />
                 </div>
-
 
                 <Button
                   type="submit"
