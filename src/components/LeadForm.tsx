@@ -112,7 +112,7 @@ const LeadForm = () => {
                   <Phone className="w-6 h-6 text-accent" />
                   <div>
                     <h3 className="font-semibold text-foreground">Телефон</h3>
-                    <p className="text-muted-foreground">+7 (999) 123-45-67</p>
+                    <p className="text-muted-foreground">+7 (978) 553-30-97</p>
                   </div>
                 </div>
                 <p className="text-sm text-muted-foreground">
@@ -127,7 +127,7 @@ const LeadForm = () => {
                   <Mail className="w-6 h-6 text-accent" />
                   <div>
                     <h3 className="font-semibold text-foreground">Email</h3>
-                    <p className="text-muted-foreground">info@drevko-build.ru</p>
+                    <p className="text-muted-foreground">info@drevko-crimea.ru</p>
                   </div>
                 </div>
                 <p className="text-sm text-muted-foreground">
