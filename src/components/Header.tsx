@@ -8,7 +8,7 @@ const Header = () => {
         <div className="flex items-center space-x-2">
           <div className="w-8 h-8 flex items-center justify-center">
             <img 
-              src="/lovable-uploads/c929eb6d-83aa-4911-9e7a-af37e66f4eb0.png" 
+              src="/lovable-uploads/70db4e4c-e77c-439a-a079-a9d809a7bcbe.png" 
               alt="Древко логотип" 
               className="w-full h-full object-contain"
             />
