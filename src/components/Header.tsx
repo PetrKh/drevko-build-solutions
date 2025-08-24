@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 
 const Header = () => {
@@ -5,8 +6,12 @@ const Header = () => {
     <header className="bg-background border-b border-border sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <div className="flex items-center space-x-2">
-          <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-            <span className="text-primary-foreground font-bold text-lg">Д</span>
+          <div className="w-8 h-8 flex items-center justify-center">
+            <img 
+              src="/lovable-uploads/c929eb6d-83aa-4911-9e7a-af37e66f4eb0.png" 
+              alt="Древко логотип" 
+              className="w-full h-full object-contain"
+            />
           </div>
           <div>
             <h1 className="text-xl font-bold text-foreground">Древко</h1>
