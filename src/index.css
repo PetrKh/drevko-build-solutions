@@ -8,46 +8,47 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Шоколадная цветовая схема */
-    --background: 30 15% 97%;
-    --foreground: 30 20% 15%;
+    /* Натуральная дерево/природа цветовая схема */
+    --background: 45 20% 98%;
+    --foreground: 25 15% 15%;
 
-    --card: 30 10% 95%;
-    --card-foreground: 30 20% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 25 15% 15%;
 
-    --popover: 30 10% 95%;
-    --popover-foreground: 30 20% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 25 15% 15%;
 
-    --primary: 25 35% 35%; /* Темный шоколад */
-    --primary-foreground: 30 15% 97%;
+    --primary: 120 25% 35%; /* Природный зелёный */
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 30 20% 85%; /* Светлый шоколад */
-    --secondary-foreground: 30 20% 15%;
+    --secondary: 30 25% 88%;
+    --secondary-foreground: 25 15% 15%;
 
-    --muted: 30 15% 90%;
-    --muted-foreground: 30 15% 45%;
+    --muted: 30 15% 92%;
+    --muted-foreground: 25 8% 45%;
 
-    --accent: 25 45% 55%; /* Золотисто-коричневый */
-    --accent-foreground: 30 15% 97%;
+    --accent: 25 45% 85%;
+    --accent-foreground: 25 15% 15%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 30 20% 85%;
-    --input: 30 20% 85%;
-    --ring: 25 35% 35%;
+    --border: 30 15% 85%;
+    --input: 30 15% 85%;
+    --ring: 120 25% 35%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
-    /* Дополнительные цвета для дизайна */
-    --warm-brown: 25 40% 25%;
-    --milk-chocolate: 30 30% 65%;
-    --dark-chocolate: 20 45% 20%;
-    --cream: 35 20% 92%;
+    /* Дерево/природа тема */
+    --warm-brown: 25 45% 25%;
+    --wood-light: 30 35% 75%;
+    --wood-dark: 25 40% 45%;
+    --nature-green: 120 25% 35%;
+    --cream: 45 20% 95%;
     
     /* Градиенты */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--warm-brown)));
-    --gradient-warm: linear-gradient(180deg, hsl(var(--cream)), hsl(var(--secondary)));
+    --gradient-primary: linear-gradient(135deg, hsl(var(--nature-green)), hsl(var(--warm-brown)));
+    --gradient-wood: linear-gradient(180deg, hsl(var(--wood-light)), hsl(var(--wood-dark)));
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
