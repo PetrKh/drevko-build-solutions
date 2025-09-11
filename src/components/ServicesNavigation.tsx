@@ -48,26 +48,22 @@ const services = [
 const ServicesNavigation = () => {
   return (
     <section className="bg-background border-b border-border">
-      <div className="container mx-auto px-4 py-6">
-        <h2 className="text-xl font-bold text-foreground mb-4 text-center">
-          Наши услуги
-        </h2>
-        
+      <div className="container mx-auto px-4 py-4">
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
           {services.map((service) => (
             <Link
               key={service.id}
               to={service.link}
-              className="group flex flex-col items-center p-3 rounded-lg bg-card hover:shadow-lg transition-shadow duration-300"
+              className="group flex flex-col items-center p-2 rounded-lg bg-card hover:shadow-lg transition-shadow duration-300"
             >
-              <div className="w-16 h-16 mb-3 overflow-hidden rounded-lg">
+              <div className="w-14 h-14 mb-2 overflow-hidden rounded-lg">
                 <img
                   src={service.image}
                   alt={service.title}
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="text-sm font-semibold text-foreground text-center leading-tight">
+              <h3 className="text-sm font-semibold text-muted-foreground text-center leading-tight">
                 {service.title}
               </h3>
             </Link>
