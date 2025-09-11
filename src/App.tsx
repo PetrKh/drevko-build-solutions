@@ -13,6 +13,7 @@ import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import ServicesNavigation from "./components/ServicesNavigation";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +26,7 @@ const App = () => (
         <BrowserRouter>
           <div className="min-h-screen flex flex-col">
             <Header />
+            <ServicesNavigation />
             <main className="flex-1">
               <Routes>
                 <Route path="/" element={<Index />} />
