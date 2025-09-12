@@ -14,7 +14,7 @@ const offers = [
     id: 1,
     title: "Хочешь жить в доме? Поможем реализовать мечту!",
     subtitle: "Строим дома, бани, гаражи, времянки, веранды и т.п.!",
-    buttonText: "→ По выгодным условиям!",
+    buttonText: "→ На выгодных условиях!",
     link: "/uslugi/derevyanie-doma",
     image: "/lovable-uploads/7ab5cb9c-8c9a-416f-87fb-b0fd219886c8.png"
   },

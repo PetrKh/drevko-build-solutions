@@ -18,8 +18,8 @@ const Index = () => {
       </Helmet>
       
       <ParallaxBackground />
-      <NewHero />
       <OffersCarousel />
+      <NewHero />
       <ServicesSection />
       <PortfolioSection />
       <ReviewsSection />
