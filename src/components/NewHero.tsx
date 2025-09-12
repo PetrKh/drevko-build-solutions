@@ -17,15 +17,9 @@ const NewHero = () => {
 
       <div className="container mx-auto relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Badge */}
-          <Badge className="mb-6 bg-primary/10 text-primary border-primary/20 text-sm px-4 py-2">
-            🏡 137 объектов построено за 3 года
-          </Badge>
-
           {/* Main heading */}
           <h1 className="text-4xl md:text-6xl font-bold mb-6 text-foreground leading-tight">
-            Строим бани, дома и хозблоки в Крыму 
-            <span className="text-primary"> за 21–45 дней</span>
+            Строим бани, дома и хозблоки в Крыму
           </h1>
 
           {/* Subheading */}

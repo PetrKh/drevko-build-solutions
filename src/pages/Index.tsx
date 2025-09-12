@@ -7,6 +7,7 @@ import ReviewsSection from "@/components/ReviewsSection";
 import AboutSection from "@/components/AboutSection";
 import LeadForm from "@/components/LeadForm";
 import ParallaxBackground from "@/components/ParallaxBackground";
+import OffersCarousel from "@/components/OffersCarousel";
 
 const Index = () => {
   return (
@@ -18,6 +19,7 @@ const Index = () => {
       
       <ParallaxBackground />
       <NewHero />
+      <OffersCarousel />
       <ServicesSection />
       <PortfolioSection />
       <ReviewsSection />

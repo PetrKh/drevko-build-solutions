@@ -6,9 +6,9 @@ const Header = () => {
     <header className="bg-background border-b border-border sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <a href="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
-          <div className="w-8 h-8 flex items-center justify-center">
+          <div className="w-12 h-12 flex items-center justify-center">
             <img 
-              src="/lovable-uploads/70db4e4c-e77c-439a-a079-a9d809a7bcbe.png" 
+              src="/lovable-uploads/1a2ec291-5498-418e-863a-44af5ab64aaa.png" 
               alt="Древко логотип" 
               className="w-full h-full object-contain"
             />

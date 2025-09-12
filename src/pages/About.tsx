@@ -15,11 +15,10 @@ const About = () => {
         <section className="py-16 px-4 bg-gradient-to-br from-primary/10 to-accent/20">
           <div className="container mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
-              Мы — Drevko
+              Мы — Древко
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Команда местных строителей с 8-летним опытом. 
-              За 3 года построили 137 объектов по всему Крыму.
+              Команда местных строителей с 8-летним опытом.
             </p>
           </div>
         </section>
@@ -32,7 +31,7 @@ const About = () => {
                 <h2 className="text-3xl font-bold mb-6">Наша история</h2>
                 <div className="space-y-4 text-muted-foreground">
                   <p>
-                    Мы — команда местных строителей с 8-летним опытом. За 3 года построили 137 объектов по всему Крыму.
+                    Мы — команда местных строителей с 8-летним опытом.
                   </p>
                   <p>
                     Почему мы не сдаём в субподряд? Потому что видели, как "стройфирмы" подводят клиентов: 
@@ -53,10 +52,6 @@ const About = () => {
                   alt="Команда Drevko на строительном объекте"
                   className="rounded-lg shadow-lg w-full"
                 />
-                <div className="absolute -bottom-6 -right-6 bg-primary text-primary-foreground p-4 rounded-lg shadow-lg">
-                  <div className="text-2xl font-bold">137</div>
-                  <div className="text-sm">объектов построено</div>
-                </div>
               </div>
             </div>
           </div>
@@ -74,10 +69,10 @@ const About = () => {
                   description: "Не сдаём в субподряд. Полностью контролируем качество и сроки на каждом этапе."
                 },
                 {
-                  icon: MapPin,
-                  title: "Местные материалы",
-                  description: "Используем качественные материалы из Крыма — быстрая доставка, адекватные цены."
-                },
+                   icon: MapPin,
+                   title: "Местные материалы",
+                   description: "Мы используем северный лес из Архангельска, получается теплый и долговечный дом."
+                 },
                 {
                   icon: Clock,
                   title: "Соблюдаем сроки",
@@ -113,46 +108,6 @@ const About = () => {
           </div>
         </section>
 
-        {/* Guarantees */}
-        <section className="py-16 px-4">
-          <div className="container mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">Наши гарантии</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {[
-                {
-                  title: "Договор с фиксированной ценой",
-                  description: "В договоре прописываем точную стоимость. Цену не меняем после начала работ."
-                },
-                {
-                  title: "Поэтапная оплата",
-                  description: "Платите по факту выполненных работ. Никаких предоплат за весь проект."
-                },
-                {
-                  title: "Гарантия 3 года",
-                  description: "Даём письменную гарантию на все виды работ сроком на 3 года."
-                },
-                {
-                  title: "Выезд на участок — бесплатно",
-                  description: "Приедем, посмотрим участок, сделаем замеры и расчёт стоимости бесплатно."
-                }
-              ].map((guarantee, index) => (
-                <Card key={index} className="group hover:shadow-lg transition-all duration-300">
-                  <CardContent className="p-6">
-                    <div className="flex items-start space-x-4">
-                      <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                        <CheckCircle className="w-4 h-4 text-primary-foreground" />
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-lg mb-2">{guarantee.title}</h3>
-                        <p className="text-muted-foreground">{guarantee.description}</p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
 
         {/* Coverage Area */}
         <section className="py-16 px-4 bg-secondary/30">
