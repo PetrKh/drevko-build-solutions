@@ -1,7 +1,9 @@
 import { Helmet } from "react-helmet-async";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Home, UtensilsCrossed, Warehouse, TreePine } from "lucide-react";
+import ConsultationForm from "@/components/ConsultationForm";
 
 const services = [
   {
@@ -55,6 +57,8 @@ const services = [
 ];
 
 const Services = () => {
+  const [isConsultationOpen, setIsConsultationOpen] = useState(false);
+  
   const scrollToForm = () => {
     document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -154,10 +158,11 @@ const Services = () => {
             <p className="text-xl text-muted-foreground mb-8">
               Оставьте заявку и получите точный расчёт стоимости за 24 часа
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" onClick={scrollToForm} className="bg-primary hover:bg-primary/90">
-                Получить расчёт
-              </Button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <ConsultationForm 
+                isOpen={isConsultationOpen} 
+                onToggle={() => setIsConsultationOpen(!isConsultationOpen)} 
+              />
               <Button size="lg" variant="outline" asChild>
                 <a href="tel:+79785533097">Позвонить сейчас</a>
               </Button>

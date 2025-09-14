@@ -6,6 +6,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Camera, FileText } from "lucide-react";
 import PhotoGallery from "@/components/PhotoGallery";
 import ObjectBlog from "@/components/ObjectBlog";
+import ConsultationForm from "@/components/ConsultationForm";
 
 type ActiveSection = 'photos' | `object-${number}`;
 
@@ -25,6 +26,7 @@ const sidebarItems = [
 
 const Portfolio = () => {
   const [activeSection, setActiveSection] = useState<ActiveSection>('photos');
+  const [isConsultationOpen, setIsConsultationOpen] = useState(false);
 
   const renderContent = () => {
     if (activeSection === 'photos') {
@@ -91,6 +93,22 @@ const Portfolio = () => {
               <div className="flex-1 min-w-0">
                 {renderContent()}
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="py-16 px-4 bg-secondary/20">
+          <div className="container mx-auto text-center">
+            <h2 className="text-3xl font-bold mb-6">Хотите увидеть ваш проект в нашем портфолио?</h2>
+            <p className="text-xl text-muted-foreground mb-8">
+              Оставьте заявку и мы обсудим ваш проект
+            </p>
+            <div className="flex justify-center">
+              <ConsultationForm 
+                isOpen={isConsultationOpen} 
+                onToggle={() => setIsConsultationOpen(!isConsultationOpen)} 
+              />
             </div>
           </div>
         </section>

@@ -1,8 +1,11 @@
 import { Helmet } from "react-helmet-async";
+import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle, Users, Clock, Shield, Award, MapPin } from "lucide-react";
+import ConsultationForm from "@/components/ConsultationForm";
 
 const About = () => {
+  const [isConsultationOpen, setIsConsultationOpen] = useState(false);
   return (
     <>
       <Helmet>
@@ -133,13 +136,11 @@ const About = () => {
             <p className="text-xl text-muted-foreground mb-8">
               Оставьте заявку и мы бесплатно приедем на ваш участок для консультации
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button 
-                onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}
-                className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 rounded-md font-medium transition-colors"
-              >
-                Оставить заявку
-              </button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <ConsultationForm 
+                isOpen={isConsultationOpen} 
+                onToggle={() => setIsConsultationOpen(!isConsultationOpen)} 
+              />
               <a 
                 href="tel:+79785533097"
                 className="border border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-3 rounded-md font-medium transition-colors"
