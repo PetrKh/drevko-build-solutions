@@ -1,8 +1,6 @@
 import { Helmet } from "react-helmet-async";
-import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Star } from "lucide-react";
-import ConsultationForm from "@/components/ConsultationForm";
 
 const reviews = [
   {
@@ -44,7 +42,6 @@ const reviews = [
 ];
 
 const Reviews = () => {
-  const [isConsultationOpen, setIsConsultationOpen] = useState(false);
   const renderStars = (rating: number) => {
     return Array.from({ length: 5 }, (_, index) => (
       <Star
@@ -182,27 +179,6 @@ const Reviews = () => {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="py-16 px-4">
-          <div className="container mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-6">Станьте нашим следующим довольным клиентом</h2>
-            <p className="text-xl text-muted-foreground mb-8">
-              Оставьте заявку и убедитесь в качестве нашей работы
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <ConsultationForm 
-                isOpen={isConsultationOpen} 
-                onToggle={() => setIsConsultationOpen(!isConsultationOpen)} 
-              />
-              <a 
-                href="tel:+79785533097"
-                className="border border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-3 rounded-md font-medium transition-colors"
-              >
-                Позвонить нам
-              </a>
-            </div>
-          </div>
-        </section>
       </div>
     </>
   );
