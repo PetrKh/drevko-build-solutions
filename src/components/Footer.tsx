@@ -45,7 +45,7 @@ const Footer = () => {
               © 2024 Центр каркасных технологий "Древ'Ко". Все права защищены.
             </p>
             <div className="flex space-x-4 text-sm opacity-80">
-              <a href="#" className="hover:opacity-100 transition-opacity">
+              <a href="/privacy" className="hover:opacity-100 transition-opacity">
                 Политика конфиденциальности
               </a>
               <a href="#" className="hover:opacity-100 transition-opacity">

@@ -214,7 +214,7 @@ const ConsultationForm: React.FC<ConsultationFormProps> = ({ isOpen, onToggle })
           </div>
           
           <p className="text-xs text-center text-muted-foreground">
-            Нажимая кнопку, вы соглашаетесь с обработкой персональных данных
+            Нажимая кнопку, вы соглашаетесь с <a href="/privacy" className="text-primary hover:underline">политикой обработки персональных данных</a>
           </p>
         </CardContent>
       </Card>
