@@ -17,9 +17,9 @@ const blogData = {
     duration: "32 дня",
     size: "6×8 м",
     photos: [
-      "/lovable-uploads/34880b26-a206-4e6a-b2b5-ffe6e9430c67.png",
-      "/lovable-uploads/c929eb6d-83aa-4911-9e7a-af37e66f4eb0.png",
-      "/lovable-uploads/70db4e4c-e77c-439a-a079-a9d809a7bcbe.png"
+      "/lovable-uploads/new-house-8.jpg",
+      "/lovable-uploads/new-house-9.jpg",
+      "/lovable-uploads/new-house-10.webp"
     ],
     content: `Завершили строительство каркасного дома для постоянного проживания в живописной Алуште. 
 
@@ -42,8 +42,8 @@ const blogData = {
     duration: "21 день",
     size: "4×6 м",
     photos: [
-      "/lovable-uploads/c929eb6d-83aa-4911-9e7a-af37e66f4eb0.png",
-      "/lovable-uploads/34880b26-a206-4e6a-b2b5-ffe6e9430c67.png"
+      "/lovable-uploads/new-house-1.jpg",
+      "/lovable-uploads/new-house-2.jpg"
     ],
     content: `Построили уютную баню для семейного отдыха в Евпатории. Проект включает парную, комнату отдыха и предбанник.
 
@@ -63,7 +63,7 @@ const blogData = {
     duration: "7 дней",
     size: "3×4 м",
     photos: [
-      "/lovable-uploads/70db4e4c-e77c-439a-a079-a9d809a7bcbe.png"
+      "/lovable-uploads/new-house-3.jpg"
     ],
     content: `Быстро и качественно построили утеплённый хозблок для хранения садового инвентаря и инструментов.
 

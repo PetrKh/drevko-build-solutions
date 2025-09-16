@@ -7,7 +7,7 @@ const services = [
     price: "От 1,2 млн руб.",
     sizes: "6×8, 6×9, 8×10 м",
     description: "Подходит для постоянного проживания",
-    image: "/lovable-uploads/34880b26-a206-4e6a-b2b5-ffe6e9430c67.png",
+    image: "/lovable-uploads/new-house-4.jpg",
     features: ["Утепление 200 мм", "Под ключ", "Чистовая отделка"]
   },
   {
@@ -15,7 +15,7 @@ const services = [
     price: "От 180 000 руб.",
     sizes: "4×4, 4×5, 4×6 м",
     description: "Утепление 150 мм, парная, комната отдыха",
-    image: "/lovable-uploads/c929eb6d-83aa-4911-9e7a-af37e66f4eb0.png",
+    image: "/lovable-uploads/new-house-5.jpg",
     features: ["Готовые проекты", "Печь в комплекте", "Под ключ"]
   },
   {
@@ -23,7 +23,7 @@ const services = [
     price: "От 40 000 руб.",
     sizes: "различные размеры",
     description: "Можно утеплить — для проживания",
-    image: "/lovable-uploads/70db4e4c-e77c-439a-a079-a9d809a7bcbe.png",
+    image: "/lovable-uploads/new-house-6.jpg",
     features: ["С окнами и дверью", "Электрика", "Под ключ"]
   }
 ];

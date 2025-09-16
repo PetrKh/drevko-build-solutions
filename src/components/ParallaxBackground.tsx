@@ -18,7 +18,7 @@ const ParallaxBackground = () => {
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
         style={{
-          backgroundImage: `url('/lovable-uploads/34880b26-a206-4e6a-b2b5-ffe6e9430c67.png')`,
+          backgroundImage: `url('/lovable-uploads/new-house-7.jpg')`,
           transform: `translateY(${scrollY * 0.5}px)`,
           height: '120vh',
           top: '-10vh'

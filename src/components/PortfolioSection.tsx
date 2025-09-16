@@ -6,19 +6,19 @@ const projects = [
     title: "Баня 4×6 в Алуште",
     duration: "21 день",
     description: "Построена за 21 день. Утепление 200 мм. Клиент использует круглый год.",
-    image: "/lovable-uploads/c929eb6d-83aa-4911-9e7a-af37e66f4eb0.png"
+    image: "/lovable-uploads/new-house-1.jpg"
   },
   {
     title: "Дом 6×8 в Симферополе",
     duration: "32 дня",
     description: "Каркасный дом для постоянного проживания. Полная отделка под ключ.",
-    image: "/lovable-uploads/34880b26-a206-4e6a-b2b5-ffe6e9430c67.png"
+    image: "/lovable-uploads/new-house-2.jpg"
   },
   {
     title: "Хозблок 3×4 в Евпатории",
     duration: "7 дней",
     description: "Утеплённый хозблок с электричеством. Быстро и качественно.",
-    image: "/lovable-uploads/70db4e4c-e77c-439a-a079-a9d809a7bcbe.png"
+    image: "/lovable-uploads/new-house-3.jpg"
   }
 ];
 

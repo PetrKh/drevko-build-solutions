@@ -4,12 +4,16 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Plus, Upload } from "lucide-react";
 
 const defaultPhotos = [
-  "/lovable-uploads/34880b26-a206-4e6a-b2b5-ffe6e9430c67.png",
-  "/lovable-uploads/c929eb6d-83aa-4911-9e7a-af37e66f4eb0.png",
-  "/lovable-uploads/70db4e4c-e77c-439a-a079-a9d809a7bcbe.png",
-  "/lovable-uploads/6e31a715-f810-49a3-8156-cab6796b0e80.png",
-  "/lovable-uploads/0114cde6-37ca-400c-8ad2-a9547987c29c.png",
-  "/lovable-uploads/756d4553-ca6b-4c5b-bbc9-00ce0b9616ef.png"
+  "/lovable-uploads/new-house-1.jpg",
+  "/lovable-uploads/new-house-2.jpg",
+  "/lovable-uploads/new-house-3.jpg",
+  "/lovable-uploads/new-house-4.jpg",
+  "/lovable-uploads/new-house-5.jpg",
+  "/lovable-uploads/new-house-6.jpg",
+  "/lovable-uploads/new-house-7.jpg",
+  "/lovable-uploads/new-house-8.jpg",
+  "/lovable-uploads/new-house-9.jpg",
+  "/lovable-uploads/new-house-10.webp"
 ];
 
 const PhotoGallery = () => {
