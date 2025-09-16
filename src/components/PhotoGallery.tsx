@@ -25,10 +25,6 @@ const PhotoGallery = () => {
     <div className="space-y-6">
       <div className="flex justify-between items-center">
         <h2 className="text-2xl font-bold">Фото объектов</h2>
-        <Button onClick={handleAddPhoto} className="flex items-center gap-2">
-          <Plus className="w-4 h-4" />
-          Добавить фото
-        </Button>
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -44,16 +40,6 @@ const PhotoGallery = () => {
           </Card>
         ))}
         
-        {/* Карточка для добавления нового фото */}
-        <Card 
-          className="group hover:shadow-lg transition-all duration-300 cursor-pointer border-2 border-dashed border-muted-foreground/30 hover:border-primary"
-          onClick={handleAddPhoto}
-        >
-          <CardContent className="h-48 flex flex-col items-center justify-center text-muted-foreground group-hover:text-primary transition-colors">
-            <Upload className="w-8 h-8 mb-2" />
-            <span className="text-sm">Добавить фото</span>
-          </CardContent>
-        </Card>
       </div>
     </div>
   );

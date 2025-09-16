@@ -57,24 +57,27 @@ const Contact = () => {
                   <CardTitle>Мессенджеры</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="space-y-2">
+                  <div className="space-y-3">
                     <a 
                       href="https://wa.me/79785533097" 
-                      className="block text-primary hover:underline"
                       target="_blank" 
                       rel="noopener noreferrer"
+                      className="block bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors text-center"
                     >
                       WhatsApp
                     </a>
                     <a 
                       href="https://t.me/+79785533097" 
-                      className="block text-primary hover:underline"
                       target="_blank" 
                       rel="noopener noreferrer"
+                      className="block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors text-center"
                     >
                       Telegram
                     </a>
                   </div>
+                  <p className="text-sm text-muted-foreground mt-3 text-center">
+                    Быстрая связь для срочных вопросов
+                  </p>
                 </CardContent>
               </Card>
 

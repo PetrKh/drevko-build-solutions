@@ -194,23 +194,26 @@ const LeadForm = () => {
                     <p className="text-muted-foreground">WhatsApp, Telegram</p>
                   </div>
                 </div>
-                <p className="text-sm text-muted-foreground">
-                  Быстрая связь для срочных вопросов
-                </p>
+                <div className="flex gap-3 mt-4">
+                  <a 
+                    href="https://wa.me/79785533097" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex-1 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors text-center"
+                  >
+                    WhatsApp
+                  </a>
+                  <a 
+                    href="https://t.me/+79785533097" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex-1 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors text-center"
+                  >
+                    Telegram
+                  </a>
+                </div>
               </CardContent>
             </Card>
-
-            <div className="bg-accent/10 rounded-lg p-6">
-              <h3 className="font-semibold text-foreground mb-3">
-                Гарантии качества
-              </h3>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>• Бесплатная консультация и выезд на участок</li>
-                <li>• Договор с фиксированной стоимостью</li>
-                <li>• Поэтапная оплата по факту работ</li>
-                <li>• Официальная гарантия 1 год</li>
-              </ul>
-            </div>
           </div>
         </div>
       </div>

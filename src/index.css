@@ -9,7 +9,7 @@ All colors MUST be HSL.
 @layer base {
   :root {
     /* Натуральная дерево/природа цветовая схема */
-    --background: 45 20% 98%;
+    --background: 37 20% 96%; /* Кремово-бежевый фон */
     --foreground: 25 15% 15%;
 
     --card: 0 0% 100%;
