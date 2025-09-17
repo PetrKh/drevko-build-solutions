@@ -12,6 +12,9 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Privacy from "./pages/Privacy";
 import NotFound from "./pages/NotFound";
+import FrameHouses from "./pages/FrameHouses";
+import Baths from "./pages/Baths";
+import UtilityBuildings from "./pages/UtilityBuildings";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ServicesNavigation from "./components/ServicesNavigation";
@@ -37,6 +40,9 @@ const App = () => (
                 <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/privacy" element={<Privacy />} />
+                <Route path="/frame-houses" element={<FrameHouses />} />
+                <Route path="/baths" element={<Baths />} />
+                <Route path="/utility-buildings" element={<UtilityBuildings />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>

@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { useNavigate } from "react-router-dom";
 
 const services = [
   {
@@ -29,8 +30,16 @@ const services = [
 ];
 
 const ServicesSection = () => {
-  const scrollToForm = () => {
-    document.getElementById('lead-form')?.scrollIntoView({ behavior: 'smooth' });
+  const navigate = useNavigate();
+
+  const handleServiceClick = (index: number) => {
+    if (index === 0) {
+      navigate('/frame-houses');
+    } else if (index === 1) {
+      navigate('/baths');
+    } else if (index === 2) {
+      navigate('/utility-buildings');
+    }
   };
 
   return (
@@ -47,7 +56,7 @@ const ServicesSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <Card key={index} className="group hover:shadow-xl transition-all duration-300 overflow-hidden">
+            <Card key={index} className="group hover:shadow-xl transition-all duration-300 overflow-hidden cursor-pointer" onClick={() => handleServiceClick(index)}>
               <div className="relative h-48 overflow-hidden">
                 <img 
                   src={service.image} 
@@ -79,7 +88,10 @@ const ServicesSection = () => {
                 </ul>
                 
                 <Button 
-                  onClick={scrollToForm}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleServiceClick(index);
+                  }}
                   className="w-full bg-primary hover:bg-primary/90"
                   variant="default"
                 >
