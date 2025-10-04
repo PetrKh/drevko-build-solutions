@@ -38,7 +38,7 @@ const ServicesSection = () => {
     } else if (index === 1) {
       navigate('/baths');
     } else if (index === 2) {
-      navigate('/utility-buildings');
+      navigate('/uslugi/bytovki');
     }
   };
 
