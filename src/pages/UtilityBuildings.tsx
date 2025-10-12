@@ -35,18 +35,6 @@ const UtilityBuildings = () => {
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-r from-background to-background/80">
-        {/* Watermark */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20 overflow-hidden">
-          <div className="text-[#FF6B00] text-[8vw] font-bold opacity-10 whitespace-nowrap select-none" 
-               style={{ 
-                 textShadow: '4px 4px 8px rgba(0,0,0,0.3)',
-                 width: '66.666%',
-                 textAlign: 'center',
-                 letterSpacing: '0.05em'
-               }}>
-            САЙТ В РАЗРАБОТКЕ
-          </div>
-        </div>
         <div className="absolute inset-0 z-0">
           <img 
             src="/lovable-uploads/new-house-6.jpg" 
