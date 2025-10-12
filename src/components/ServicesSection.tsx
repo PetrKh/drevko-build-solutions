@@ -43,8 +43,21 @@ const ServicesSection = () => {
   };
 
   return (
-    <section className="py-16 px-4 bg-background">
-      <div className="container mx-auto">
+    <section className="py-16 px-4 bg-background relative">
+      {/* Watermark */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10 overflow-hidden">
+        <div className="text-[#FF6B00] text-[8vw] font-bold opacity-10 whitespace-nowrap select-none" 
+             style={{ 
+               textShadow: '4px 4px 8px rgba(0,0,0,0.3)',
+               width: '66.666%',
+               textAlign: 'center',
+               letterSpacing: '0.05em'
+             }}>
+          САЙТ В РАЗРАБОТКЕ
+        </div>
+      </div>
+      
+      <div className="container mx-auto relative z-20">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
             Наши услуги

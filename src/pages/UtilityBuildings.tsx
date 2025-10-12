@@ -35,6 +35,18 @@ const UtilityBuildings = () => {
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-r from-background to-background/80">
+        {/* Watermark */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20 overflow-hidden">
+          <div className="text-[#FF6B00] text-[8vw] font-bold opacity-10 whitespace-nowrap select-none" 
+               style={{ 
+                 textShadow: '4px 4px 8px rgba(0,0,0,0.3)',
+                 width: '66.666%',
+                 textAlign: 'center',
+                 letterSpacing: '0.05em'
+               }}>
+            САЙТ В РАЗРАБОТКЕ
+          </div>
+        </div>
         <div className="absolute inset-0 z-0">
           <img 
             src="/lovable-uploads/new-house-6.jpg" 
@@ -120,7 +132,7 @@ const UtilityBuildings = () => {
             <Card>
               <CardHeader>
                 <div className="h-48 overflow-hidden rounded-lg mb-4">
-                  <img src="/lovable-uploads/new-house-3.jpg" alt="Деревянная бытовка" className="w-full h-full object-cover" />
+                  <img src="/lovable-uploads/9_1.jpg" alt="Деревянная бытовка" className="w-full h-full object-cover" />
                 </div>
                 <CardTitle className="text-2xl">Деревянные бытовки</CardTitle>
                 <CardDescription className="text-lg italic">Идеальна для дачи, жилья, сезонного проживания</CardDescription>
@@ -138,7 +150,7 @@ const UtilityBuildings = () => {
             <Card>
               <CardHeader>
                 <div className="h-48 overflow-hidden rounded-lg mb-4">
-                  <img src="/lovable-uploads/new-house-4.jpg" alt="Металлический блок-контейнер" className="w-full h-full object-cover" />
+                  <img src="/lovable-uploads/bytovka-metal.jpg" alt="Металлический блок-контейнер" className="w-full h-full object-cover" />
                 </div>
                 <CardTitle className="text-2xl">Металлические блок-контейнеры</CardTitle>
                 <CardDescription className="text-lg italic">Надёжно, прочно, масштабируемо</CardDescription>
@@ -257,45 +269,6 @@ const UtilityBuildings = () => {
         </div>
       </section>
 
-      {/* Reviews */}
-      <section className="py-16 px-4 bg-background/50">
-        <div className="container mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Что говорят клиенты</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-            {[
-              {
-                name: "Алексей",
-                location: "Симферополь",
-                text: "Заказали бытовку для рабочих — собрали за один день. Ни одной царапины, всё как в договоре. Спасибо!"
-              },
-              {
-                name: "Ольга",
-                location: "Феодосия", 
-                text: "Купили для дачи. Через год сделали пристройку — смотрится как дом. Очень довольны!"
-              },
-              {
-                name: "ИП Смирнов",
-                location: "Евпатория",
-                text: "Нужен был склад — сделали модуль из двух контейнеров. Утеплили, провели свет. Отличное решение!"
-              }
-            ].map((review, index) => (
-              <Card key={index}>
-                <CardContent className="p-6">
-                  <div className="flex mb-4">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
-                    ))}
-                  </div>
-                  <p className="text-muted-foreground mb-4 italic">"{review.text}"</p>
-                  <div className="font-semibold">{review.name}</div>
-                  <div className="text-sm text-muted-foreground">{review.location}</div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Pricing */}
       <section className="py-16 px-4 bg-background">
