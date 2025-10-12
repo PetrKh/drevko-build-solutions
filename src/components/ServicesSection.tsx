@@ -46,9 +46,9 @@ const ServicesSection = () => {
     <section className="py-16 px-4 bg-background relative">
       {/* Watermark */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10 overflow-hidden">
-        <div className="text-[#FF6B00] text-[8vw] font-bold opacity-10 whitespace-nowrap select-none" 
+        <div className="text-[#FF6B00] text-[8vw] font-bold opacity-30 whitespace-nowrap select-none" 
              style={{ 
-               textShadow: '4px 4px 8px rgba(0,0,0,0.3)',
+               textShadow: '4px 4px 12px rgba(255, 107, 0, 0.4)',
                width: '66.666%',
                textAlign: 'center',
                letterSpacing: '0.05em'
