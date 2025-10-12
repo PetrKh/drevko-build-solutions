@@ -18,6 +18,7 @@ import UtilityBuildings from "./pages/UtilityBuildings";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ServicesNavigation from "./components/ServicesNavigation";
+import SiteWatermark from "./components/SiteWatermark";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +28,7 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
+        <SiteWatermark />
         <BrowserRouter>
           <div className="min-h-screen flex flex-col">
             <Header />
