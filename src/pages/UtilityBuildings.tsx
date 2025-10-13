@@ -13,10 +13,49 @@ const UtilityBuildings = () => {
     message: ""
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log("Form submitted:", formData);
+    
+    const subject = `Бытовка, ${formData.phone}, звонить`;
+    const body = `Имя: ${formData.name}
+Телефон: ${formData.phone}
+Сообщение: ${formData.message}
+
+Позвонить!!!`;
+
+    try {
+      const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          service_id: 'default_service',
+          template_id: 'template_utility_buildings',
+          user_id: 'public_key',
+          template_params: {
+            to_email: 'info@drevko-crimea.ru',
+            subject: subject,
+            message: body,
+            from_name: formData.name,
+            from_phone: formData.phone
+          }
+        })
+      });
+
+      if (response.ok) {
+        alert('Заявка успешно отправлена!');
+        setFormData({ name: '', phone: '', message: '' });
+      } else {
+        // Fallback to mailto link if email service fails
+        const mailtoLink = `mailto:info@drevko-crimea.ru?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        window.location.href = mailtoLink;
+      }
+    } catch (error) {
+      // Fallback to mailto link on error
+      const mailtoLink = `mailto:info@drevko-crimea.ru?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailtoLink;
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -60,15 +99,6 @@ const UtilityBuildings = () => {
               Низкие цены от производителя. Доставка и сборка по всему полуострову.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 text-lg">
-                <Phone className="mr-2 h-5 w-5" />
-                Позвонить и рассчитать стоимость
-              </Button>
-              <Button size="lg" variant="outline" className="px-8 py-4 text-lg">
-                Оставить заявку
-              </Button>
-            </div>
           </div>
         </div>
       </section>
@@ -154,36 +184,9 @@ const UtilityBuildings = () => {
             </Card>
           </div>
           
-          <div className="text-center">
-            <Button size="lg" className="bg-orange-500 hover:bg-orange-600">
-              <Phone className="mr-2 h-5 w-5" />
-              Проконсультироваться бесплатно
-            </Button>
-          </div>
         </div>
       </section>
 
-      {/* Modular Buildings */}
-      <section className="py-16 px-4 bg-background">
-        <div className="container mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">Модульные здания под ключ</h2>
-              <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                Создаём двухэтажные дома, офисы, магазины, посты охраны и склады из блок-контейнеров. 
-                Можно подключить электрику, сантехнику, утеплить и отделать внутри.
-              </p>
-              <Button size="lg" className="bg-orange-500 hover:bg-orange-600">
-                <MessageCircle className="mr-2 h-5 w-5" />
-                Узнать цену на модульное здание
-              </Button>
-            </div>
-            <div>
-              <img src="/lovable-uploads/new-house-5.jpg" alt="Модульное здание" className="w-full rounded-lg shadow-lg" />
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Why Choose Us */}
       <section className="py-16 px-4 bg-background/50">
@@ -249,9 +252,10 @@ const UtilityBuildings = () => {
           </p>
           
           <div className="text-center">
-            <Button size="lg" className="bg-green-600 hover:bg-green-700">
-              <MessageCircle className="mr-2 h-5 w-5" />
-              Посмотреть больше работ в WhatsApp
+            <Button size="lg" className="bg-green-600 hover:bg-green-700" asChild>
+              <a href="https://drevko-crimea.ru/portfolio">
+                Посмотреть больше работ
+              </a>
             </Button>
           </div>
         </div>
@@ -283,14 +287,11 @@ const UtilityBuildings = () => {
                 </div>
               </div>
               
-              <p className="text-sm text-muted-foreground mb-6 italic">
-                * Цена включает доставку и сборку по Крыму.
-              </p>
-              
-              <Button size="lg" className="bg-orange-500 hover:bg-orange-600">
-                <Phone className="mr-2 h-5 w-5" />
-                Узнать точную цену за 5 минут
-              </Button>
+              <div className="border-2 border-orange-500 rounded-lg p-6 bg-orange-50 dark:bg-orange-950/20">
+                <p className="text-lg font-semibold text-foreground text-center">
+                  Все цены зависят от конструкции возводимого сооружения
+                </p>
+              </div>
             </div>
             
             <div>
