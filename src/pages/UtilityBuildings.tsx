@@ -16,45 +16,41 @@ const UtilityBuildings = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    const subject = `Бытовка, ${formData.phone}, звонить`;
-    const body = `Имя: ${formData.name}
-Телефон: ${formData.phone}
-Сообщение: ${formData.message}
+    const BOT_TOKEN = "8488435629:AAFetCYHC5Qa6ciTmUNjnS8e_ajjx0UD9OE";
+    const CHAT_ID = "-1002507186847";
+    
+    const message = `🏠 Бытовка, ${formData.phone}, звонить
 
-Позвонить!!!`;
+👤 Имя: ${formData.name}
+📞 Телефон: ${formData.phone}
+💬 Сообщение: ${formData.message}
+
+⚠️ Позвонить!!!
+
+⏰ Время: ${new Date().toLocaleString('ru-RU')}`;
 
     try {
-      const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+      const response = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          service_id: 'default_service',
-          template_id: 'template_utility_buildings',
-          user_id: 'public_key',
-          template_params: {
-            to_email: 'info@drevko-crimea.ru',
-            subject: subject,
-            message: body,
-            from_name: formData.name,
-            from_phone: formData.phone
-          }
-        })
+          chat_id: CHAT_ID,
+          text: message,
+          parse_mode: 'HTML'
+        }),
       });
 
       if (response.ok) {
         alert('Заявка успешно отправлена!');
         setFormData({ name: '', phone: '', message: '' });
       } else {
-        // Fallback to mailto link if email service fails
-        const mailtoLink = `mailto:info@drevko-crimea.ru?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        window.location.href = mailtoLink;
+        alert('Ошибка отправки. Попробуйте еще раз или свяжитесь с нами по телефону.');
       }
     } catch (error) {
-      // Fallback to mailto link on error
-      const mailtoLink = `mailto:info@drevko-crimea.ru?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      window.location.href = mailtoLink;
+      console.error('Error sending to Telegram:', error);
+      alert('Ошибка отправки. Попробуйте еще раз или свяжитесь с нами по телефону.');
     }
   };
 
