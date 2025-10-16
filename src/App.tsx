@@ -19,6 +19,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ServicesNavigation from "./components/ServicesNavigation";
 import SiteWatermark from "./components/SiteWatermark";
+import SocialMediaLinks from "./components/SocialMediaLinks";
 
 const queryClient = new QueryClient();
 
@@ -29,6 +30,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <SiteWatermark />
+        <SocialMediaLinks />
         <BrowserRouter>
           <div className="min-h-screen flex flex-col">
             <Header />
