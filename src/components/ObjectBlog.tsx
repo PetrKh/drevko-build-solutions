@@ -1,12 +1,9 @@
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Badge } from "@/components/ui/badge";
-import { MapPin, Clock, Ruler, Edit, Check, Trash2, Plus, Upload } from "lucide-react";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { toast } from "sonner";
+import { Calendar, MapPin, Clock, Ruler } from "lucide-react";
 
 interface ObjectBlogProps {
   objectNumber: number;
@@ -83,39 +80,7 @@ const blogData = {
 };
 
 const ObjectBlog = ({ objectNumber }: ObjectBlogProps) => {
-  const storageKey = `objectBlog_${objectNumber}`;
-  
-  // Load saved data from localStorage or use initial data
-  const loadData = () => {
-    const saved = localStorage.getItem(storageKey);
-    if (saved) {
-      try {
-        return JSON.parse(saved);
-      } catch (e) {
-        console.error("Error loading saved data:", e);
-      }
-    }
-    return blogData[objectNumber as keyof typeof blogData];
-  };
-
-  const initialData = loadData();
-  const [data, setData] = useState(initialData);
-  const [isEditMode, setIsEditMode] = useState(false);
-  const [editedTitle, setEditedTitle] = useState(initialData?.title || "");
-  const [editedContent, setEditedContent] = useState(initialData?.content || "");
-  const [editedLocation, setEditedLocation] = useState(initialData?.location || "");
-  const [editedDuration, setEditedDuration] = useState(initialData?.duration || "");
-  const [editedSize, setEditedSize] = useState(initialData?.size || "");
-  const [editedDate, setEditedDate] = useState(initialData?.date || "");
-  const [newPhotoUrl, setNewPhotoUrl] = useState("");
-  const fileInputRef = useRef<HTMLInputElement>(null);
-
-  // Save data to localStorage whenever it changes
-  useEffect(() => {
-    if (data) {
-      localStorage.setItem(storageKey, JSON.stringify(data));
-    }
-  }, [data, storageKey]);
+  const data = blogData[objectNumber as keyof typeof blogData];
   
   if (!data) {
     return (
@@ -130,216 +95,42 @@ const ObjectBlog = ({ objectNumber }: ObjectBlogProps) => {
     );
   }
 
-  const handleSaveChanges = () => {
-    setData({
-      ...data,
-      title: editedTitle,
-      content: editedContent,
-      location: editedLocation,
-      duration: editedDuration,
-      size: editedSize,
-      date: editedDate,
-    });
-    setIsEditMode(false);
-    toast.success("Изменения сохранены");
-  };
-
-  const handleCancelEdit = () => {
-    setEditedTitle(data.title);
-    setEditedContent(data.content);
-    setEditedLocation(data.location);
-    setEditedDuration(data.duration);
-    setEditedSize(data.size);
-    setEditedDate(data.date);
-    setIsEditMode(false);
-  };
-
-  const handleAddPhoto = () => {
-    if (!newPhotoUrl.trim()) {
-      toast.error("Введите URL фотографии");
-      return;
-    }
-    setData({
-      ...data,
-      photos: [...data.photos, newPhotoUrl]
-    });
-    setNewPhotoUrl("");
-    toast.success("Фото добавлено");
-  };
-
-  const handleDeletePhoto = (index: number) => {
-    setData({
-      ...data,
-      photos: data.photos.filter((_, i) => i !== index)
-    });
-    toast.success("Фото удалено");
-  };
-
-  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const files = event.target.files;
-    if (!files || files.length === 0) return;
-
-    Array.from(files).forEach((file) => {
-      if (!file.type.startsWith('image/')) {
-        toast.error("Можно загружать только изображения");
-        return;
-      }
-
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        const result = e.target?.result as string;
-        setData((prev) => ({
-          ...prev,
-          photos: [...prev.photos, result]
-        }));
-        toast.success("Фото загружено");
-      };
-      reader.readAsDataURL(file);
-    });
-
-    // Reset input
-    if (fileInputRef.current) {
-      fileInputRef.current.value = '';
-    }
-  };
-
   return (
     <div className="space-y-6">
-      <div className="flex justify-between items-start gap-4">
-        {isEditMode ? (
-          <Input
-            value={editedTitle}
-            onChange={(e) => setEditedTitle(e.target.value)}
-            className="text-2xl font-bold flex-1"
-          />
-        ) : (
-          <h2 className="text-2xl font-bold">{data.title}</h2>
-        )}
-        <div className="flex gap-2 flex-shrink-0">
-          {isEditMode ? (
-            <Input
-              value={editedDate}
-              onChange={(e) => setEditedDate(e.target.value)}
-              className="text-sm w-32"
-              placeholder="Дата"
-            />
-          ) : (
-            <span className="text-sm text-muted-foreground opacity-70">{data.date}</span>
-          )}
-          {isEditMode ? (
-            <>
-              <Button size="sm" onClick={handleSaveChanges}>
-                <Check className="w-4 h-4 mr-1" /> Сохранить
-              </Button>
-              <Button size="sm" variant="outline" onClick={handleCancelEdit}>
-                Отмена
-              </Button>
-            </>
-          ) : (
-            <Button size="sm" variant="outline" onClick={() => setIsEditMode(true)}>
-              <Edit className="w-4 h-4 mr-1" /> Редактировать
-            </Button>
-          )}
-        </div>
+      <div className="flex justify-between items-start">
+        <h2 className="text-2xl font-bold">{data.title}</h2>
+        <span className="text-sm text-muted-foreground opacity-70">{data.date}</span>
       </div>
 
       {/* Информационные бейджи */}
       <div className="flex flex-wrap gap-2">
-        {isEditMode ? (
-          <>
-            <Input
-              value={editedLocation}
-              onChange={(e) => setEditedLocation(e.target.value)}
-              className="w-32"
-              placeholder="Локация"
-            />
-            <Input
-              value={editedDuration}
-              onChange={(e) => setEditedDuration(e.target.value)}
-              className="w-32"
-              placeholder="Срок"
-            />
-            <Input
-              value={editedSize}
-              onChange={(e) => setEditedSize(e.target.value)}
-              className="w-32"
-              placeholder="Размер"
-            />
-          </>
-        ) : (
-          <>
-            <Badge variant="outline" className="flex items-center gap-1">
-              <MapPin className="w-3 h-3" />
-              {data.location}
-            </Badge>
-            <Badge variant="outline" className="flex items-center gap-1">
-              <Clock className="w-3 h-3" />
-              {data.duration}
-            </Badge>
-            <Badge variant="outline" className="flex items-center gap-1">
-              <Ruler className="w-3 h-3" />
-              {data.size}
-            </Badge>
-          </>
-        )}
+        <Badge variant="outline" className="flex items-center gap-1">
+          <MapPin className="w-3 h-3" />
+          {data.location}
+        </Badge>
+        <Badge variant="outline" className="flex items-center gap-1">
+          <Clock className="w-3 h-3" />
+          {data.duration}
+        </Badge>
+        <Badge variant="outline" className="flex items-center gap-1">
+          <Ruler className="w-3 h-3" />
+          {data.size}
+        </Badge>
       </div>
 
       {/* Слайдер фотографий */}
       <Card>
         <CardContent className="p-6">
-          {isEditMode && (
-            <div className="mb-4 space-y-2">
-              <div className="flex gap-2">
-                <Input
-                  placeholder="URL новой фотографии"
-                  value={newPhotoUrl}
-                  onChange={(e) => setNewPhotoUrl(e.target.value)}
-                  onKeyDown={(e) => e.key === 'Enter' && handleAddPhoto()}
-                />
-                <Button onClick={handleAddPhoto}>
-                  <Plus className="w-4 h-4 mr-2" /> Добавить
-                </Button>
-              </div>
-              <div className="flex gap-2">
-                <input
-                  ref={fileInputRef}
-                  type="file"
-                  accept="image/*"
-                  multiple
-                  onChange={handleFileUpload}
-                  className="hidden"
-                  id={`photo-upload-${objectNumber}`}
-                />
-                <Button 
-                  onClick={() => fileInputRef.current?.click()}
-                  variant="secondary"
-                  className="w-full"
-                >
-                  <Upload className="w-4 h-4 mr-2" /> Загрузить фото
-                </Button>
-              </div>
-            </div>
-          )}
           <Carousel className="w-full">
             <CarouselContent>
               {data.photos.map((photo, index) => (
                 <CarouselItem key={index}>
-                  <div className="relative h-64 md:h-96 overflow-hidden rounded-lg group">
+                  <div className="relative h-64 md:h-96 overflow-hidden rounded-lg">
                     <img 
                       src={photo} 
                       alt={`${data.title} - фото ${index + 1}`}
                       className="w-full h-full object-cover"
                     />
-                    {isEditMode && (
-                      <Button
-                        variant="destructive"
-                        size="icon"
-                        className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
-                        onClick={() => handleDeletePhoto(index)}
-                      >
-                        <Trash2 className="w-4 h-4" />
-                      </Button>
-                    )}
                   </div>
                 </CarouselItem>
               ))}
@@ -353,22 +144,13 @@ const ObjectBlog = ({ objectNumber }: ObjectBlogProps) => {
       {/* Текст статьи */}
       <Card>
         <CardContent className="p-6">
-          {isEditMode ? (
-            <Textarea
-              value={editedContent}
-              onChange={(e) => setEditedContent(e.target.value)}
-              className="min-h-[400px] font-normal"
-              placeholder="Текст статьи"
-            />
-          ) : (
-            <div className="prose prose-gray max-w-none">
-              {data.content.split('\n').map((paragraph, index) => (
-                <p key={index} className="mb-4 leading-relaxed">
-                  {paragraph}
-                </p>
-              ))}
-            </div>
-          )}
+          <div className="prose prose-gray max-w-none">
+            {data.content.split('\n').map((paragraph, index) => (
+              <p key={index} className="mb-4 leading-relaxed">
+                {paragraph}
+              </p>
+            ))}
+          </div>
         </CardContent>
       </Card>
     </div>
