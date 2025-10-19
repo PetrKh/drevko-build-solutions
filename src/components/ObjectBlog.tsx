@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Badge } from "@/components/ui/badge";
-import { MapPin, Clock, Ruler, Edit, Check, Trash2, Plus } from "lucide-react";
+import { MapPin, Clock, Ruler, Edit, Check, Trash2, Plus, Upload } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
@@ -83,7 +83,22 @@ const blogData = {
 };
 
 const ObjectBlog = ({ objectNumber }: ObjectBlogProps) => {
-  const initialData = blogData[objectNumber as keyof typeof blogData];
+  const storageKey = `objectBlog_${objectNumber}`;
+  
+  // Load saved data from localStorage or use initial data
+  const loadData = () => {
+    const saved = localStorage.getItem(storageKey);
+    if (saved) {
+      try {
+        return JSON.parse(saved);
+      } catch (e) {
+        console.error("Error loading saved data:", e);
+      }
+    }
+    return blogData[objectNumber as keyof typeof blogData];
+  };
+
+  const initialData = loadData();
   const [data, setData] = useState(initialData);
   const [isEditMode, setIsEditMode] = useState(false);
   const [editedTitle, setEditedTitle] = useState(initialData?.title || "");
@@ -93,6 +108,14 @@ const ObjectBlog = ({ objectNumber }: ObjectBlogProps) => {
   const [editedSize, setEditedSize] = useState(initialData?.size || "");
   const [editedDate, setEditedDate] = useState(initialData?.date || "");
   const [newPhotoUrl, setNewPhotoUrl] = useState("");
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  // Save data to localStorage whenever it changes
+  useEffect(() => {
+    if (data) {
+      localStorage.setItem(storageKey, JSON.stringify(data));
+    }
+  }, [data, storageKey]);
   
   if (!data) {
     return (
@@ -150,6 +173,34 @@ const ObjectBlog = ({ objectNumber }: ObjectBlogProps) => {
       photos: data.photos.filter((_, i) => i !== index)
     });
     toast.success("Фото удалено");
+  };
+
+  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const files = event.target.files;
+    if (!files || files.length === 0) return;
+
+    Array.from(files).forEach((file) => {
+      if (!file.type.startsWith('image/')) {
+        toast.error("Можно загружать только изображения");
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const result = e.target?.result as string;
+        setData((prev) => ({
+          ...prev,
+          photos: [...prev.photos, result]
+        }));
+        toast.success("Фото загружено");
+      };
+      reader.readAsDataURL(file);
+    });
+
+    // Reset input
+    if (fileInputRef.current) {
+      fileInputRef.current.value = '';
+    }
   };
 
   return (
@@ -237,16 +288,36 @@ const ObjectBlog = ({ objectNumber }: ObjectBlogProps) => {
       <Card>
         <CardContent className="p-6">
           {isEditMode && (
-            <div className="mb-4 flex gap-2">
-              <Input
-                placeholder="URL новой фотографии"
-                value={newPhotoUrl}
-                onChange={(e) => setNewPhotoUrl(e.target.value)}
-                onKeyDown={(e) => e.key === 'Enter' && handleAddPhoto()}
-              />
-              <Button onClick={handleAddPhoto}>
-                <Plus className="w-4 h-4 mr-2" /> Добавить
-              </Button>
+            <div className="mb-4 space-y-2">
+              <div className="flex gap-2">
+                <Input
+                  placeholder="URL новой фотографии"
+                  value={newPhotoUrl}
+                  onChange={(e) => setNewPhotoUrl(e.target.value)}
+                  onKeyDown={(e) => e.key === 'Enter' && handleAddPhoto()}
+                />
+                <Button onClick={handleAddPhoto}>
+                  <Plus className="w-4 h-4 mr-2" /> Добавить
+                </Button>
+              </div>
+              <div className="flex gap-2">
+                <input
+                  ref={fileInputRef}
+                  type="file"
+                  accept="image/*"
+                  multiple
+                  onChange={handleFileUpload}
+                  className="hidden"
+                  id={`photo-upload-${objectNumber}`}
+                />
+                <Button 
+                  onClick={() => fileInputRef.current?.click()}
+                  variant="secondary"
+                  className="w-full"
+                >
+                  <Upload className="w-4 h-4 mr-2" /> Загрузить фото
+                </Button>
+              </div>
             </div>
           )}
           <Carousel className="w-full">
