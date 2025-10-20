@@ -4,8 +4,8 @@ const Privacy = () => {
   return (
     <>
       <Helmet>
-        <title>Политика конфиденциальности - Древ'Ко</title>
-        <meta name="description" content="Политика в отношении обработки персональных данных компании Древ'Ко" />
+        <title>Политика конфиденциальности - ДревКо</title>
+        <meta name="description" content="Политика в отношении обработки персональных данных компании ДревКо" />
       </Helmet>
       
       <div className="min-h-screen bg-background">

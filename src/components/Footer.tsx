@@ -9,7 +9,7 @@ const Footer = () => {
                 <span className="text-primary font-bold text-lg">Д</span>
               </div>
               <div>
-                <h3 className="text-xl font-bold">Древ'Ко</h3>
+                <h3 className="text-xl font-bold">ДревКо</h3>
                 <p className="text-sm opacity-80">Центр каркасных технологий</p>
               </div>
             </div>
@@ -42,7 +42,7 @@ const Footer = () => {
         <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-sm opacity-80">
-              © 2024 Центр каркасных технологий "Древ'Ко". Все права защищены.
+              © 2024 Центр каркасных технологий "ДревКо". Все права защищены.
             </p>
             <div className="flex space-x-4 text-sm opacity-80">
               <a href="/privacy" className="hover:opacity-100 transition-opacity">

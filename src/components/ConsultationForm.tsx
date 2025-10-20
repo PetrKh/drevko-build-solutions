@@ -29,7 +29,7 @@ const ConsultationForm: React.FC<ConsultationFormProps> = ({ isOpen, onToggle })
   const sendToTelegram = async (name: string, phone: string): Promise<boolean> => {
     const botToken = "7937084108:AAEk8qlqxFrMGDiGaNRZxlKHTu8vKbnR6ek";
     const chatId = "-1002254847074";
-    const message = `🏠 Новая заявка на консультацию!\n\n👤 Имя: ${name}\n📞 Телефон: ${phone}\n\n📍 Источник: Сайт Древ'Ко`;
+    const message = `🏠 Новая заявка на консультацию!\n\n👤 Имя: ${name}\n📞 Телефон: ${phone}\n\n📍 Источник: Сайт ДревКо`;
 
     try {
       const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {

@@ -64,7 +64,7 @@ const UtilityBuildings = () => {
   return (
     <>
       <Helmet>
-        <title>Хозблоки и бытовки в Крыму - Древ'Ко | Бытовка за 3 дня от производителя</title>
+        <title>Хозблоки и бытовки в Крыму - ДревКо | Бытовка за 3 дня от производителя</title>
         <meta name="description" content="Производим деревянные и металлические бытовки, блок-контейнеры в Крыму. Сборка за 3 дня прямо на участке. Цены от производителя. Доставка по всему Крыму." />
       </Helmet>
 
@@ -82,7 +82,7 @@ const UtilityBuildings = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <div className="mb-8">
-              <img src="/lovable-uploads/new-house-1.jpg" alt="Логотип Древ'Ко" className="w-24 h-24 mx-auto mb-4 rounded-full object-cover" />
+              <img src="/lovable-uploads/new-house-1.jpg" alt="Логотип ДревКо" className="w-24 h-24 mx-auto mb-4 rounded-full object-cover" />
             </div>
             
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-foreground leading-tight">

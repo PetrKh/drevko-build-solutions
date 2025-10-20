@@ -14,12 +14,12 @@ const Header = () => {
             <div className="w-12 h-12 flex items-center justify-center">
               <img 
                 src="/lovable-uploads/1a2ec291-5498-418e-863a-44af5ab64aaa.png" 
-                alt="Древ'Ко логотип" 
+                alt="ДревКо логотип" 
                 className="w-full h-full object-contain"
               />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-foreground">Древ'Ко</h1>
+              <h1 className="text-xl font-bold text-foreground">ДревКо</h1>
               <p className="text-xs text-muted-foreground">Центр каркасных технологий</p>
             </div>
           </a>
